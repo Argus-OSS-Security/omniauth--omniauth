@@ -1,17 +1,18 @@
 name: Perf
 
-on:
-  pull_request:
-  merge_group: # (a merge queue's)
-  push:
-    branches: [master] # (and any other branch to guard, a stable one, say)
-  schedule:
-    - cron: "0 4 * * *"
-  workflow_dispatch:
-
-# A pull request's newer push cancels its run, if that's still going, as
-# only its newest commit's result counts. Every other run (a push's, say)
-# runs to the end, so that each push is compared.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#   merge_group: # (a merge queue's)
+#   push:
+#     branches: [master] # (and any other branch to guard, a stable one, say)
+#   schedule:
+#     - cron: "0 4 * * *"
+#   workflow_dispatch:
+# 
+# # A pull request's newer push cancels its run, if that's still going, as
+# # only its newest commit's result counts. Every other run (a push's, say)
+# # runs to the end, so that each push is compared.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.run_id }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}

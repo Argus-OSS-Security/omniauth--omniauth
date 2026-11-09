@@ -11,11 +11,12 @@ name: Perf comment
 # number, if it names the pull request the run compared, and the comment
 # and the status, if they're ones Duel says. (The workflow must be on the
 # default branch before it runs at all.)
-on:
-  workflow_run:
-    workflows: ["Perf"]
-    types: [completed]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows: ["Perf"]
+#     types: [completed]
+# 
 permissions: {}
 
 jobs:

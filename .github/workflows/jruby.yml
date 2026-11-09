@@ -1,11 +1,12 @@
 name: JRuby
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-# The jobs only read the repository, so don't give them write access.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [ master ]
+#   pull_request:
+#     branches: [ master ]
+# 
+# # The jobs only read the repository, so don't give them write access.
 permissions:
   contents: read
 
